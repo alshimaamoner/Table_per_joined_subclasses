@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2020, 1:16:08 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="entity"> 
+    <class name="Person" table="person"> 
+        <id name="id" column="id"> 
+            <generator class="increment"/>      
+        </id> 
+        <property name="firstName" column="first_name"> </property>
+            <property name="lastName" column="last_name"> </property>  
+          <joined-subclass name="Student" table="student">
+              <key column="id"/> 
+              <property name="department" column="department"> </property>
+          </joined-subclass> 
+          <joined-subclass name="Teacher" table="teacher"> 
+              <key column="id"/> 
+              <property name="hireDate" column="hire_date" type="date"> </property>
+          </joined-subclass> 
+    </class> 
+</hibernate-mapping> 
